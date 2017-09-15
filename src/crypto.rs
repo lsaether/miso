@@ -1,10 +1,10 @@
-use blake2::Blake2s;
-use hash::H256
+use blake2::{Blake2s, Digest};
+use hash::H256;
 
 #[inline]
-fn blake2s(input: Vec<u8>) -> H256 {
+pub fn blake2s(input: &[u8]) -> H256 {
     let mut hasher = Blake2s::default();
-    let data: Vec<u8> = input.clone();
+    let data: &[u8] = input.clone();
     hasher.input(&data);
 
     let res = hasher.result();

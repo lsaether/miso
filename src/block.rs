@@ -1,4 +1,5 @@
 use crypto::blake2s;
+use hash::H256;
 
 #[derive(Debug, Default)]
 struct TransactionList;
@@ -15,9 +16,9 @@ struct Block {
 /// verify blocks but have no concern for keeping a record of the full transactions.
 #[derive(Debug, Default)]
 struct BlockHeader {
-    coinbase: [u8;32],
-    prev_block_hash: [u8;32],
-    block_hash: [u8;32],
+    coinbase: H256,
+    prev_block_hash: H256,
+    block_hash: H256,
     timestamp: u64,
     nonce: u32,
 }
